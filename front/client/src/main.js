@@ -6,6 +6,7 @@ import Operation from './Operations';
 
 var httpLink = new HttpLink({uri: 'https://api.graph.cool/simple/v1/cjzbrluv5288n01892127fp98'});
 
+//Objeto do ApolloClient para a comunicação com o graphcool
 const apolloClient = new ApolloClient({
     link: httpLink,
     cache: new InMemoryCache(),

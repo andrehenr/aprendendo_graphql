@@ -1,0 +1,4 @@
+npm install -g webpack
+npm init --yes
+npm install ou npm i
+npm start

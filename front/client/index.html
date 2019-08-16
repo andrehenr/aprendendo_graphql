@@ -12,13 +12,13 @@
         <input type="text" v-model="newTitle" />
         <button @click="create()">Create New</button>
 
-      <ul>
+      <ol>
         <li v-for="post in allPosts" :key="post.id">
           <button @click="edit(post)">Edit</button>
           <button @click="remove(post)">Delete</button>
            - {{post.titulo}}
         </li>
-      </ul>
+      </ol>
 
     </div>
     
