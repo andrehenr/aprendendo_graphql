@@ -31,6 +31,23 @@ export const Post = {
                 id    
             }
         }
+    `,
+    subscription: gql `
+        subscription newPosts{
+            Post(filter: {
+                mutation_in: [UPDATED, DELETED, CREATED]
+            }){
+                mutation
+                previousValues{
+                    id
+                    titulo
+                } 
+                node{
+                    id
+                    titulo
+                } 
+            }
+        }
     `
 }
 
@@ -39,4 +56,3 @@ const Operation = {
 }
 
 export default Operation;
-
