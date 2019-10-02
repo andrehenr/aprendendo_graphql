@@ -1,4 +1,5 @@
 const {ObjectId } = require('mongodb')
+const pubsub = require('../pubsub')
 
 module.exports = {
     Query: {
@@ -21,7 +22,7 @@ module.exports = {
             newPost =  Object.assign({
                 id: response.insertedId
             }, newPost)
-            pubsusb.publish('Post', {Post : { mutation: 'CREATED', previousValues: value }})
+            pubsub.publish('Post', {Post : { mutation: 'CREATED', previousValues: value }})
             return newPost;
         },
         updatePost: async (root, data, {
@@ -32,7 +33,7 @@ module.exports = {
            data._id = ObjectId(data.id);
            delete data.id;
            const {value} = await Posts.findAndModify({'_id': data._id}, [], {'$set': data}, {new: true})
-           pubsusb.publish('Post', {Post : { mutation: 'UPDATED', node: value }})
+           pubsub.publish('Post', {Post : { mutation: 'UPDATED', node: value }})
            return value;
         },
         deletePost: async (root, data, {

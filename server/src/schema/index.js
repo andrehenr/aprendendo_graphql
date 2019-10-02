@@ -31,11 +31,11 @@ const typeDefs = `
         Post(filter: PostSubscriptionFilter) : PostSubscriptionPayload
     }
 
-    input PostSubscriptionFilter{
-        mutation_in: [ _ModelMutationType! ]
+    input PostSubscriptionFilter {
+        mutation_in: [_ModelMutationType!]
     }
 
-    enum _ModelMutationType{
+    enum _ModelMutationType {
         CREATED
         UPDATED
         DELETED
